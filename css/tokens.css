@@ -1,0 +1,84 @@
+/* AMI-Teach Design System Tokens — source of truth: index.html */
+
+:root {
+
+  /* ── Backgrounds ── */
+  --bg:           #060A0F;
+  --bg-2:         #0B1118;
+  --bg-3:         #101820;
+  --surface:      #111922;
+  --surface-2:    #18222E;
+
+  /* ── Borders ── */
+  --border:       #1C2A3A;
+  --border-2:     #243347;
+
+  /* ── Brand accent ── */
+  --em:           #00C896;
+  --em-dim:       #009E77;
+  --em-glow:      rgba(0,200,150,0.10);
+  --em-glow-s:    rgba(0,200,150,0.20);
+
+  /* ── Secondary accent ── */
+  --amber:        #F5A623;
+  --amber-glow:   rgba(245,166,35,0.10);
+
+  /* ── Text ── */
+  --t1:           #EEF3F8;
+  --t2:           #7E94AB;
+  --t3:           #4D6175;
+  --t4:           #2E3F50;
+
+  /* ── Semantic ── */
+  --color-error:      #E05252;
+  --color-error-glow: rgba(224,82,82,0.10);
+  --color-success:    var(--em);
+  --color-warning:    var(--amber);
+
+  /* ── Fonts ── */
+  --font-body:    'Plus Jakarta Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* ── Font weights ── */
+  --fw-regular:   400;
+  --fw-medium:    500;
+  --fw-semibold:  600;
+  --fw-bold:      700;
+  --fw-extrabold: 800;
+
+  /* ── Font size scale ── */
+  --fs-xs:   0.72rem;
+  --fs-sm:   0.875rem;
+  --fs-base: 1rem;
+  --fs-md:   1.0625rem;
+  --fs-lg:   1.25rem;
+  --fs-xl:   1.5rem;
+  --fs-2xl:  2rem;
+  --fs-3xl:  clamp(2.25rem, 4vw, 3.25rem);
+  --fs-4xl:  clamp(3rem, 7vw, 6.5rem);
+
+  /* ── Layout ── */
+  --max:     1240px;
+  --pad:     clamp(1.5rem, 5vw, 4rem);
+  --nav-h:   68px;
+
+  /* ── Radii ── */
+  --r-sm:    4px;
+  --r-md:    6px;
+  --r-lg:    8px;
+  --r-xl:    10px;
+  --r-2xl:   12px;
+  --r-full:  100px;
+
+  /* ── Transitions ── */
+  --t-fast:  0.2s ease;
+  --t-base:  0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  --t-slow:  0.75s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* ── Shadows ── */
+  --shadow-card:    0 40px 80px rgba(0,0,0,0.6);
+  --shadow-glow:    0 0 28px rgba(0,200,150,0.35);
+  --shadow-glow-lg: 0 0 40px rgba(0,200,150,0.4);
+
+}

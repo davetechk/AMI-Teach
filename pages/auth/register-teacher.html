@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teacher Application — AMI-Teach</title>
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/auth.css">
+</head>
+<body class="auth-page">
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ─── LEFT PANEL ─── -->
+  <div class="auth-left">
+    <div class="auth-orb"></div>
+
+    <a href="../../index.html" class="nav-logo">
+      <div class="nav-mark">
+        <svg viewBox="0 0 16 16"><path d="M8 1 L14 4 L14 8 C14 11.5 11 14 8 15 C5 14 2 11.5 2 8 L2 4 Z"/></svg>
+      </div>
+      <div class="nav-word">AMI-<span>Teach</span></div>
+    </a>
+
+    <div class="auth-left-content">
+      <h2 class="auth-left-heading">
+        The Teacher<br>Academy.
+        <span class="serif">Verified.</span>
+      </h2>
+      <p class="auth-left-desc">AMI-Teach teachers are not hired — they are earned. Three gates, no exceptions. Pass all three and your Mastery Score goes live.</p>
+
+      <div class="vetting-preview-card">
+        <div class="stage-num-circle">01</div>
+        <div>
+          <div class="vpc-title">Subject Proficiency Test</div>
+          <div class="vpc-desc">Timed, auto-graded. Pass threshold: 70%. Failure triggers 7-day lockout. Score stored as Mastery Score.</div>
+        </div>
+      </div>
+
+      <div class="vetting-preview-card">
+        <div class="stage-num-circle">02</div>
+        <div>
+          <div class="vpc-title">Video Teaching Demo</div>
+          <div class="vpc-desc">Record a live teaching demonstration inside your dashboard. Uploaded to secure storage for admin review.</div>
+        </div>
+      </div>
+
+      <div class="vetting-preview-card">
+        <div class="stage-num-circle">03</div>
+        <div>
+          <div class="vpc-title">Admin Interview</div>
+          <div class="vpc-desc">Live interview with an AMI-Teach administrator. On approval: Verified & Active. Mastery Score goes public.</div>
+        </div>
+      </div>
+
+      <div class="score-pill">
+        <div class="score-ring">
+          <div class="score-inner">98</div>
+        </div>
+        <div class="score-lbl">
+          Average Mastery Score
+          <small>Across verified AMI-Teach teachers</small>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT PANEL ─── -->
+  <div class="auth-right">
+    <div class="auth-right-inner">
+
+      <div class="auth-form-header">
+        <div class="auth-form-kicker">Teacher Application</div>
+        <h1>Apply as a Teacher</h1>
+        <p>Submit your application. All accounts start as <strong>pending</strong> — you'll be guided through the 3-stage vetting process from your dashboard.</p>
+      </div>
+
+      <div class="auth-info-banner">
+        Your profile will not be visible to students until you complete all three vetting stages. Hourly rates are set during registration and can be updated after verification.
+      </div>
+
+      <form id="teacher-register-form" novalidate>
+        <div class="form-error"></div>
+
+        <div class="form-input-row">
+          <div class="form-group">
+            <label class="form-label" for="teacher-name">Full Name</label>
+            <input id="teacher-name" type="text" class="form-input" placeholder="Dr. Emeka Eze" autocomplete="name">
+            <span id="teacher-name-error" class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="teacher-phone">Phone Number</label>
+            <input id="teacher-phone" type="tel" class="form-input" placeholder="08012345678" autocomplete="tel">
+            <span id="teacher-phone-error" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="teacher-email">Email Address</label>
+          <input id="teacher-email" type="email" class="form-input" placeholder="you@example.com" autocomplete="email">
+          <span id="teacher-email-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Subjects You Teach</label>
+          <div class="form-label-sub">Select all that apply</div>
+          <div class="subject-grid">
+            <div class="subject-chip" data-subject="Mathematics">Mathematics</div>
+            <div class="subject-chip" data-subject="English">English</div>
+            <div class="subject-chip" data-subject="Physics">Physics</div>
+            <div class="subject-chip" data-subject="Chemistry">Chemistry</div>
+            <div class="subject-chip" data-subject="Biology">Biology</div>
+            <div class="subject-chip" data-subject="Economics">Economics</div>
+            <div class="subject-chip" data-subject="Government">Government</div>
+            <div class="subject-chip" data-subject="Literature">Literature</div>
+            <div class="subject-chip" data-subject="Geography">Geography</div>
+            <div class="subject-chip" data-subject="Commerce">Commerce</div>
+            <div class="subject-chip" data-subject="Accounting">Accounting</div>
+            <div class="subject-chip" data-subject="Further Maths">Further Maths</div>
+            <div class="subject-chip" data-subject="CRS">CRS</div>
+            <div class="subject-chip" data-subject="IRS">IRS</div>
+            <div class="subject-chip" data-subject="Civic Education">Civic Edu.</div>
+          </div>
+          <span id="teacher-subjects-error" class="field-error"></span>
+        </div>
+
+        <div class="form-input-row">
+          <div class="form-group">
+            <label class="form-label" for="teacher-password">Password</label>
+            <div class="input-password-wrapper">
+              <input id="teacher-password" type="password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password"></button>
+            </div>
+            <span id="teacher-password-error" class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="teacher-confirm-password">Confirm Password</label>
+            <div class="input-password-wrapper">
+              <input id="teacher-confirm-password" type="password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password"></button>
+            </div>
+            <span id="teacher-confirm-password-error" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="teacher-rate">Hourly Rate (₦)</label>
+          <input id="teacher-rate" type="number" class="form-input" placeholder="e.g. 5000" min="1000" step="500">
+          <span id="teacher-rate-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <div class="terms-row">
+            <input type="checkbox" id="teacher-terms">
+            <label for="teacher-terms">
+              I agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a>, and the <a href="#">Teacher Code of Conduct</a>
+            </label>
+          </div>
+          <span id="teacher-terms-error" class="field-error"></span>
+        </div>
+
+        <button id="teacher-register-btn" type="submit" class="btn-auth">Submit Application</button>
+      </form>
+
+      <div class="auth-switch">
+        Already have an account?<br>
+        <a href="login.html">Sign in here</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../js/env.js"></script>
+  <script>
+    (function initCursor() {
+      const dot  = document.getElementById('cursor');
+      const ring = document.getElementById('cursor-ring');
+      if (!dot || !ring) return;
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + (mx - 4) + 'px, ' + (my - 4) + 'px)';
+      });
+      (function lerp() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.transform = 'translate(' + (rx - 18) + 'px, ' + (ry - 18) + 'px)';
+        requestAnimationFrame(lerp);
+      })();
+      document.querySelectorAll('a, button, [role="button"]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { ring.classList.add('expanded'); });
+        el.addEventListener('mouseleave', function() { ring.classList.remove('expanded'); });
+      });
+    })();
+  </script>
+  <script type="module">
+    import { initTeacherRegister } from '../../js/auth.js';
+    initTeacherRegister();
+  </script>
+</body>
+</html>

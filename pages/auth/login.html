@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — AMI-Teach</title>
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/auth.css">
+</head>
+<body class="auth-page">
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ─── LEFT PANEL ─── -->
+  <div class="auth-left">
+    <div class="auth-orb"></div>
+
+    <a href="../../index.html" class="nav-logo">
+      <div class="nav-mark">
+        <svg viewBox="0 0 16 16"><path d="M8 1 L14 4 L14 8 C14 11.5 11 14 8 15 C5 14 2 11.5 2 8 L2 4 Z"/></svg>
+      </div>
+      <div class="nav-word">AMI-<span>Teach</span></div>
+    </a>
+
+    <div class="auth-left-content">
+      <h2 class="auth-left-heading">
+        Welcome<br>Back.
+        <span class="serif">Again.</span>
+      </h2>
+      <p class="auth-left-desc">Every session, every score, every verified teacher — your academic record is secure, tracked, and always accessible.</p>
+
+      <div class="auth-left-stat">
+        <div class="stat-num">98<span class="a">%</span></div>
+        <div class="stat-label">Verified teacher quality pass rate</div>
+      </div>
+      <div class="auth-left-stat">
+        <div class="stat-num">Top <span class="a">1%</span></div>
+        <div class="stat-label">Teacher standard on the platform</div>
+      </div>
+      <div class="auth-left-stat">
+        <div class="stat-num">3<span class="a">-Stage</span></div>
+        <div class="stat-label">Vetting process before any lesson</div>
+      </div>
+    </div>
+
+    <div class="auth-trust-strip">
+      <div class="trust-item">Paystack-secured payments</div>
+      <div class="trust-item">Row Level Security on all data</div>
+      <div class="trust-item">Role-separated access control</div>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT PANEL ─── -->
+  <div class="auth-right">
+    <div class="auth-right-inner">
+
+      <div class="auth-form-header">
+        <div class="auth-form-kicker">Secure Login</div>
+        <h1>Sign In</h1>
+        <p>Enter your credentials to access your dashboard.</p>
+      </div>
+
+      <form id="login-form" novalidate>
+        <div class="form-error"></div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <input id="login-email" type="email" class="form-input" placeholder="you@example.com" autocomplete="email">
+          <span id="login-email-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <div class="input-password-wrapper">
+            <input id="login-password" type="password" class="form-input" placeholder="••••••••" autocomplete="current-password">
+            <button type="button" class="password-toggle" aria-label="Show password"></button>
+          </div>
+          <span id="login-password-error" class="field-error"></span>
+        </div>
+
+        <a href="#" class="forgot-link">Forgot password?</a>
+
+        <button id="login-btn" type="submit" class="btn-auth">Sign In</button>
+      </form>
+
+      <div class="auth-divider"><span>or register as</span></div>
+
+      <div class="auth-role-links">
+        <a href="register-student.html" class="btn-out">Student</a>
+        <a href="register-guardian.html" class="btn-out">Guardian</a>
+        <a href="register-teacher.html" class="btn-out">Teacher</a>
+      </div>
+
+      <div class="auth-switch">
+        Don't have an account?<br>
+        <a href="register-student.html">Get started — it's free</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../js/env.js"></script>
+  <script>
+    (function initCursor() {
+      const dot  = document.getElementById('cursor');
+      const ring = document.getElementById('cursor-ring');
+      if (!dot || !ring) return;
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + (mx - 4) + 'px, ' + (my - 4) + 'px)';
+      });
+      (function lerp() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.transform = 'translate(' + (rx - 18) + 'px, ' + (ry - 18) + 'px)';
+        requestAnimationFrame(lerp);
+      })();
+      document.querySelectorAll('a, button, [role="button"]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { ring.classList.add('expanded'); });
+        el.addEventListener('mouseleave', function() { ring.classList.remove('expanded'); });
+      });
+    })();
+  </script>
+  <script type="module">
+    import { initLogin } from '../../js/auth.js';
+    initLogin();
+  </script>
+</body>
+</html>

@@ -1,0 +1,690 @@
+/* AMI-Teach — Student dashboard styles. Imports shared base. */
+
+@import './dashboard.css';
+
+/* ════════════════════════════════════════
+   OVERVIEW PANEL
+════════════════════════════════════════ */
+
+.dash-panel { animation: panelFadeIn 0.3s ease; }
+
+@keyframes panelFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.dash-greeting {
+  margin-bottom: 2rem;
+}
+
+.dash-greeting h1 {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.035em;
+  color: var(--t1);
+  line-height: 1.1;
+  margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+}
+
+.dash-greeting h1 .em { color: var(--em); }
+
+.dash-greeting p {
+  font-size: 0.875rem;
+  color: var(--t2);
+  line-height: 1.7;
+}
+
+/* Stats cards grid */
+.dash-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Book session banner */
+.book-session-banner {
+  background: linear-gradient(135deg, var(--surface) 0%, rgba(0, 200, 150, 0.04) 100%);
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  border-radius: var(--r-xl);
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.book-banner-text h3 {
+  font-size: 1.1rem;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.025em;
+  color: var(--t1);
+  margin-bottom: 0.4rem;
+  font-family: var(--font-body);
+}
+
+.book-banner-text p {
+  font-size: 0.82rem;
+  color: var(--t2);
+  line-height: 1.7;
+  max-width: 460px;
+}
+
+/* Overview two-column layout */
+.dash-overview-cols {
+  display: grid;
+  grid-template-columns: 65fr 35fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Quick stats rows (This Week panel) */
+.dash-week-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.5rem 1.75rem;
+}
+
+.dash-week-stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.dash-week-stat:last-child { border-bottom: none; }
+
+.dash-week-label {
+  font-size: 0.78rem;
+  color: var(--t3);
+}
+
+.dash-week-value {
+  font-size: 0.88rem;
+  font-weight: var(--fw-bold);
+  color: var(--t1);
+  font-family: var(--font-mono);
+}
+
+/* ════════════════════════════════════════
+   UPCOMING SESSION CARDS
+════════════════════════════════════════ */
+
+.upcoming-session {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.5rem;
+  display: flex;
+  gap: 1.25rem;
+  align-items: flex-start;
+  transition: border-color 0.25s;
+  margin-bottom: 1rem;
+}
+
+.upcoming-session:last-child { margin-bottom: 0; }
+
+.upcoming-session:hover { border-color: var(--border-2); }
+
+.upcoming-date-block {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 0.875rem 1rem;
+  text-align: center;
+  flex-shrink: 0;
+  min-width: 64px;
+}
+
+.date-day {
+  font-size: 1.6rem;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.04em;
+  color: var(--t1);
+  line-height: 1;
+  font-family: var(--font-body);
+}
+
+.date-month {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  color: var(--t3);
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+
+.upcoming-details { flex: 1; }
+
+.upcoming-subject {
+  font-size: 0.9rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  color: var(--t1);
+  margin-bottom: 0.3rem;
+  font-family: var(--font-body);
+}
+
+.upcoming-teacher {
+  font-size: 0.78rem;
+  color: var(--t2);
+  margin-bottom: 0.5rem;
+}
+
+.upcoming-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.meta-chip {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--t3);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.meta-chip svg {
+  width: 11px;
+  height: 11px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ════════════════════════════════════════
+   SYLLABUS TRACKER PANEL
+════════════════════════════════════════ */
+
+.tracker-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tracker-overall {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.tracker-ring-wrap {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.tracker-ring-svg {
+  width: 80px;
+  height: 80px;
+  transform: rotate(-90deg);
+}
+
+.tracker-ring-svg .track {
+  fill: none;
+  stroke: var(--border-2);
+  stroke-width: 6;
+}
+
+.tracker-ring-svg .fill {
+  fill: none;
+  stroke: var(--em);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 213.6;
+  stroke-dashoffset: 213.6;
+  transition: stroke-dashoffset 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tracker-ring-pct {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: var(--fw-extrabold);
+  color: var(--t1);
+  font-family: var(--font-body);
+}
+
+.tracker-overall-title {
+  font-size: 1rem;
+  font-weight: var(--fw-extrabold);
+  letter-spacing: -0.02em;
+  color: var(--t1);
+  font-family: var(--font-body);
+}
+
+.tracker-overall-sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--t3);
+  margin-top: 3px;
+}
+
+/* Exam target chips in tracker header */
+.tracker-exam-chips {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tracker-exam-chips .exam-chip {
+  padding: 0.4rem 0.8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t3);
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s;
+}
+
+.tracker-exam-chips .exam-chip:hover { border-color: var(--border-2); color: var(--t2); }
+
+.tracker-exam-chips .exam-chip.selected {
+  background: var(--em-glow);
+  border-color: rgba(0, 200, 150, 0.35);
+  color: var(--em);
+}
+
+/* Subject tracker cards grid */
+.subject-trackers {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.subject-tracker-card {
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-xl);
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.25s;
+}
+
+.subject-tracker-card:hover { border-color: var(--border-2); }
+
+.stc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.stc-subject {
+  font-size: 0.82rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: -0.01em;
+  color: var(--t1);
+  font-family: var(--font-body);
+}
+
+.stc-pct {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  color: var(--em);
+}
+
+.stc-bar {
+  height: 4px;
+  background: var(--border);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.stc-fill {
+  height: 100%;
+  background: var(--em);
+  border-radius: var(--r-full);
+  width: 0;
+  transition: width 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stc-meta {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  color: var(--t3);
+  text-transform: uppercase;
+}
+
+/* ════════════════════════════════════════
+   TOPIC CHECKLIST
+════════════════════════════════════════ */
+
+.topic-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.topic-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  transition: all 0.2s;
+  cursor: pointer;
+  user-select: none;
+}
+
+.topic-item:hover { border-color: var(--border-2); }
+
+.topic-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  border: 1.5px solid var(--border-2);
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.topic-check svg {
+  width: 10px;
+  height: 10px;
+  stroke: var(--em);
+  fill: none;
+  stroke-width: 2.5;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.2s, transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.topic-item.done .topic-check {
+  background: var(--em-glow);
+  border-color: rgba(0, 200, 150, 0.4);
+}
+
+.topic-item.done .topic-check svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.topic-name {
+  font-size: 0.82rem;
+  color: var(--t2);
+  flex: 1;
+  line-height: 1.4;
+  font-family: var(--font-body);
+}
+
+.topic-item.done .topic-name {
+  color: var(--t3);
+  text-decoration: line-through;
+  text-decoration-color: var(--t4);
+}
+
+.topic-session-link {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+  color: var(--t4);
+  text-transform: uppercase;
+  transition: color 0.2s;
+  flex-shrink: 0;
+}
+
+.topic-item:hover .topic-session-link { color: var(--em); }
+
+/* ════════════════════════════════════════
+   SESSION HISTORY TABLE
+════════════════════════════════════════ */
+
+.session-table-wrap {
+  overflow-x: auto;
+}
+
+.session-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.session-table thead tr {
+  border-bottom: 1px solid var(--border);
+}
+
+.session-table th {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--t3);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
+
+.session-table td {
+  padding: 0.875rem 1rem;
+  font-size: 0.82rem;
+  color: var(--t2);
+  border-bottom: 1px solid rgba(28, 42, 58, 0.5);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.session-table tbody tr { transition: background 0.15s; }
+.session-table tbody tr:hover { background: rgba(255, 255, 255, 0.02); }
+
+.session-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--r-full);
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.status-completed {
+  background: var(--em-glow);
+  border: 1px solid rgba(0, 200, 150, 0.2);
+  color: var(--em);
+}
+
+.status-upcoming {
+  background: var(--amber-glow);
+  border: 1px solid rgba(245, 166, 35, 0.2);
+  color: var(--amber);
+}
+
+.status-cancelled {
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  color: #FCA5A5;
+}
+
+/* Filter chips row */
+.session-filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  padding: 0.45rem 0.9rem;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--t3);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: var(--fw-medium);
+}
+
+.filter-chip:hover { border-color: var(--border-2); color: var(--t2); }
+
+.filter-chip.active {
+  background: var(--em-glow);
+  border-color: rgba(0, 200, 150, 0.35);
+  color: var(--em);
+}
+
+/* ════════════════════════════════════════
+   BOOK SESSION PANEL
+════════════════════════════════════════ */
+
+.booking-steps {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: 2rem;
+}
+
+.booking-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  position: relative;
+}
+
+.booking-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: calc(50% + 16px);
+  right: calc(-50% + 16px);
+  height: 1px;
+  background: var(--border-2);
+}
+
+.step-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: var(--fw-bold);
+  transition: all 0.3s;
+  position: relative;
+  z-index: 1;
+}
+
+.step-circle.active {
+  background: var(--em);
+  color: #020D08;
+}
+
+.step-circle.completed {
+  background: var(--em-glow);
+  border: 1px solid rgba(0, 200, 150, 0.35);
+  color: var(--em);
+}
+
+.step-circle.inactive {
+  background: transparent;
+  border: 1px solid var(--border-2);
+  color: var(--t3);
+}
+
+.step-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--t3);
+}
+
+.book-coming-soon {
+  text-align: center;
+  padding: 3rem;
+}
+
+.book-coming-soon h3 {
+  font-size: 1rem;
+  font-weight: var(--fw-extrabold);
+  color: var(--t2);
+  margin-bottom: 0.75rem;
+  font-family: var(--font-body);
+}
+
+.book-coming-soon p {
+  font-size: 0.875rem;
+  color: var(--t3);
+  line-height: 1.75;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ════════════════════════════════════════
+   SHARED BUTTON — BTN-EM
+   (copied from global.css for dashboard context)
+════════════════════════════════════════ */
+
+.btn-em {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  background: var(--em);
+  color: #020D08;
+  border-radius: var(--r-sm);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-em:hover {
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .dash-stats-grid      { grid-template-columns: repeat(2, 1fr); }
+  .dash-overview-cols   { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .subject-trackers       { grid-template-columns: 1fr; }
+  .book-session-banner    { flex-direction: column; align-items: flex-start; }
+  .booking-steps          { gap: 0; }
+  .session-table-wrap     { display: block; overflow-x: auto; }
+  .tracker-header         { flex-direction: column; align-items: flex-start; }
+  .dash-stats-grid        { grid-template-columns: 1fr; }
+}

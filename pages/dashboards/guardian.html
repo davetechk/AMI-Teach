@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AMI-Teach — Guardian Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,400;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/dashboard.css">
+  <link rel="stylesheet" href="../../css/dashboard-guardian.css">
+</head>
+<body class="dashboard-page">
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ══════════════════════════════════════
+       SIDEBAR
+  ══════════════════════════════════════ -->
+  <aside class="dashboard-sidebar" id="sidebar">
+
+    <a href="../../index.html" class="sidebar-brand">
+      <div class="nav-mark">
+        <svg viewBox="0 0 16 16"><path d="M8 1 L14 4 L14 8 C14 11.5 11 14 8 15 C5 14 2 11.5 2 8 L2 4 Z"/></svg>
+      </div>
+      <div class="nav-word">AMI-<span>Teach</span></div>
+    </a>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" id="sidebar-avatar">GP</div>
+      <div class="sidebar-user-info">
+        <div class="sidebar-user-name" id="sidebar-user-name">Guardian Name</div>
+        <div class="sidebar-user-role">Guardian Portal</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+
+      <div class="sidebar-nav-section">Oversight</div>
+
+      <button class="sidebar-nav-item active" data-panel="overview">
+        <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Overview
+      </button>
+
+      <button class="sidebar-nav-item" data-panel="children">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        My Children
+        <span class="sidebar-nav-badge">2</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-panel="summaries">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Lesson Summaries
+        <span class="sidebar-nav-badge">3 New</span>
+      </button>
+
+      <button class="sidebar-nav-item" data-panel="book">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M12 16v-4M10 14h4"/></svg>
+        Book a Session
+      </button>
+
+      <button class="sidebar-nav-item" data-panel="reports">
+        <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Progress Reports
+      </button>
+
+      <div class="sidebar-nav-section">Finances</div>
+
+      <button class="sidebar-nav-item" data-panel="payments">
+        <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        Payments &amp; Invoices
+      </button>
+
+      <button class="sidebar-nav-item" data-panel="spending">
+        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        Spending Overview
+      </button>
+
+      <div class="sidebar-nav-section">Account</div>
+
+      <button class="sidebar-nav-item" data-panel="settings">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        Settings
+      </button>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+      <button class="sidebar-signout-btn" id="signout-btn">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+  <!-- ══════════════════════════════════════
+       TOPBAR
+  ══════════════════════════════════════ -->
+  <header class="dashboard-topbar">
+    <div class="topbar-left">
+      <button class="topbar-menu-btn" id="menu-btn" aria-label="Toggle sidebar">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="topbar-page-title" id="topbar-title">Guardian Portal</div>
+      <div class="topbar-separator"></div>
+      <div class="topbar-breadcrumb">Overview</div>
+    </div>
+    <div class="topbar-right">
+      <button class="topbar-notif" aria-label="Notifications">
+        <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <div class="notif-dot"></div>
+      </button>
+      <div class="topbar-avatar" id="topbar-avatar">GP</div>
+      <div>
+        <div class="topbar-user-name" id="topbar-user-name">Guardian Name</div>
+        <div class="topbar-user-role">Guardian</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ══════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════ -->
+  <main class="dashboard-main" id="dashboard-main">
+
+    <!-- ─── PANEL 1: OVERVIEW ─── -->
+    <section id="panel-overview" class="dash-panel">
+
+      <div class="dash-greeting">
+        <h1 id="greeting-heading">Good morning, <span class="em">Guardian.</span></h1>
+        <p>You have 2 children enrolled and 3 new lesson summaries waiting for review.</p>
+      </div>
+
+      <div class="dash-stats-grid">
+
+        <div class="dash-card">
+          <div class="dash-card-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="dash-card-label">Children Enrolled</div>
+          <div class="dash-card-value" data-target="2">2</div>
+          <div class="dash-card-sub">1 active session today</div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          </div>
+          <div class="dash-card-label">Sessions This Month</div>
+          <div class="dash-card-value" data-target="18">18</div>
+          <div class="dash-card-sub">↑ 4 from last month</div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          </div>
+          <div class="dash-card-label">Total Spent</div>
+          <div class="dash-card-value" style="font-size:1.4rem">₦<span class="em">124,000</span></div>
+          <div class="dash-card-sub">This billing cycle</div>
+        </div>
+
+        <div class="dash-card">
+          <div class="dash-card-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="dash-card-label">Avg Syllabus Progress</div>
+          <div class="dash-card-value">76<span class="em">%</span></div>
+          <div class="dash-card-sub">Across all subjects</div>
+        </div>
+
+      </div>
+
+      <!-- Two-column: Children + Activity -->
+      <div class="dash-overview-cols">
+
+        <div>
+          <div class="dash-section-title">
+            Your Children
+            <span class="mono">// quick overview</span>
+          </div>
+
+          <div class="dependent-grid" style="grid-template-columns: 1fr; gap: 1rem;">
+
+            <div class="dependent-card active" data-child="chisom">
+              <div class="dependent-card__header">
+                <div class="dependent-card__avatar">CO</div>
+                <div>
+                  <div class="dependent-name">Chisom Okafor</div>
+                  <div class="dependent-exam">JAMB 2025</div>
+                </div>
+              </div>
+              <div class="dependent-card__progress">
+                <div class="dep-progress-header">
+                  <span class="dep-progress-label">Syllabus Mastery</span>
+                  <span class="dep-progress-pct">78%</span>
+                </div>
+                <div class="dep-progress-bar">
+                  <div class="dep-progress-fill" data-width="78"></div>
+                </div>
+              </div>
+              <div class="dependent-card__stats">
+                <div class="dep-stat">
+                  <div class="dep-stat-value">24</div>
+                  <div class="dep-stat-label">Sessions</div>
+                </div>
+                <div class="dep-stat">
+                  <div class="dep-stat-value">4</div>
+                  <div class="dep-stat-label">Subjects</div>
+                </div>
+                <div class="dep-stat">
+                  <div class="dep-stat-value">82%</div>
+                  <div class="dep-stat-label">Top Score</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dependent-card" data-child="emeka">
+              <div class="dependent-card__header">
+                <div class="dependent-card__avatar">EO</div>
+                <div>
+                  <div class="dependent-name">Emeka Okafor</div>
+                  <div class="dependent-exam">WAEC 2025</div>
+                </div>
+              </div>
+              <div class="dependent-card__progress">
+                <div class="dep-progress-header">
+                  <span class="dep-progress-label">Syllabus Mastery</span>
+                  <span class="dep-progress-pct">61%</span>
+                </div>
+                <div class="dep-progress-bar">
+                  <div class="dep-progress-fill" data-width="61"></div>
+                </div>
+              </div>
+              <div class="dependent-card__stats">
+                <div class="dep-stat">
+                  <div class="dep-stat-value">16</div>
+                  <div class="dep-stat-label">Sessions</div>
+                </div>
+                <div class="dep-stat">
+                  <div class="dep-stat-value">5</div>
+                  <div class="dep-stat-label">Subjects</div>
+                </div>
+                <div class="dep-stat">
+                  <div class="dep-stat-value">74%</div>
+                  <div class="dep-stat-label">Top Score</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div>
+          <div class="dash-section-title">
+            Recent Activity
+            <span class="mono">// last 7 days</span>
+          </div>
+          <div class="dash-card" style="padding: 1.25rem 1.5rem;">
+            <div class="activity-list">
+              <div class="activity-row">
+                <div class="activity-dot green"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Chisom — Mathematics session completed</div>
+                  <div class="activity-time">Today, 10:00 AM</div>
+                </div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-dot green"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Lesson summary received from Mr. Adebayo</div>
+                  <div class="activity-time">Today, 10:45 AM</div>
+                </div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-dot amber"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Emeka — Physics session upcoming</div>
+                  <div class="activity-time">Tomorrow, 2:00 PM</div>
+                </div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-dot neutral"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Invoice generated for May 2025</div>
+                  <div class="activity-time">May 5, 2025</div>
+                </div>
+              </div>
+              <div class="activity-row">
+                <div class="activity-dot green"></div>
+                <div class="activity-body">
+                  <div class="activity-text">Chisom — Chemistry session completed</div>
+                  <div class="activity-time">May 4, 2025</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 2: MY CHILDREN ─── -->
+    <section id="panel-children" class="dash-panel" style="display:none">
+
+      <div class="dash-section-title">
+        Enrolled Children
+        <span class="mono">// manage dependents</span>
+      </div>
+
+      <div class="dependent-grid">
+
+        <div class="dependent-card active" data-child="chisom">
+          <div class="dependent-card__header">
+            <div class="dependent-card__avatar">CO</div>
+            <div>
+              <div class="dependent-name">Chisom Okafor</div>
+              <div class="dependent-exam">JAMB 2025</div>
+            </div>
+          </div>
+          <div class="dependent-card__progress">
+            <div class="dep-progress-header">
+              <span class="dep-progress-label">Syllabus Mastery</span>
+              <span class="dep-progress-pct">78%</span>
+            </div>
+            <div class="dep-progress-bar">
+              <div class="dep-progress-fill" data-width="78"></div>
+            </div>
+          </div>
+          <div class="dependent-card__stats">
+            <div class="dep-stat">
+              <div class="dep-stat-value">24</div>
+              <div class="dep-stat-label">Sessions</div>
+            </div>
+            <div class="dep-stat">
+              <div class="dep-stat-value">4</div>
+              <div class="dep-stat-label">Subjects</div>
+            </div>
+            <div class="dep-stat">
+              <div class="dep-stat-value">82%</div>
+              <div class="dep-stat-label">Top Score</div>
+            </div>
+          </div>
+          <div class="dependent-card__actions">
+            <button class="btn-dep-primary">View Progress →</button>
+            <button class="btn-dep-secondary">Book Session</button>
+          </div>
+        </div>
+
+        <div class="dependent-card" data-child="emeka">
+          <div class="dependent-card__header">
+            <div class="dependent-card__avatar">EO</div>
+            <div>
+              <div class="dependent-name">Emeka Okafor</div>
+              <div class="dependent-exam">WAEC 2025</div>
+            </div>
+          </div>
+          <div class="dependent-card__progress">
+            <div class="dep-progress-header">
+              <span class="dep-progress-label">Syllabus Mastery</span>
+              <span class="dep-progress-pct">61%</span>
+            </div>
+            <div class="dep-progress-bar">
+              <div class="dep-progress-fill" data-width="61"></div>
+            </div>
+          </div>
+          <div class="dependent-card__stats">
+            <div class="dep-stat">
+              <div class="dep-stat-value">16</div>
+              <div class="dep-stat-label">Sessions</div>
+            </div>
+            <div class="dep-stat">
+              <div class="dep-stat-value">5</div>
+              <div class="dep-stat-label">Subjects</div>
+            </div>
+            <div class="dep-stat">
+              <div class="dep-stat-value">74%</div>
+              <div class="dep-stat-label">Top Score</div>
+            </div>
+          </div>
+          <div class="dependent-card__actions">
+            <button class="btn-dep-primary">View Progress →</button>
+            <button class="btn-dep-secondary">Book Session</button>
+          </div>
+        </div>
+
+        <button class="add-dependent-card">
+          <div class="add-icon">+</div>
+          <div class="add-label">Add a Child</div>
+          <div class="add-sublabel">Register another dependent to this portal</div>
+        </button>
+
+      </div>
+
+      <div class="dash-section-title">
+        Subject Breakdown
+        <span class="mono">// Chisom Okafor</span>
+      </div>
+
+      <div class="subject-trackers">
+
+        <div class="subject-tracker-card">
+          <div class="stc-header">
+            <div class="stc-subject">Mathematics</div>
+            <div class="stc-pct">82%</div>
+          </div>
+          <div class="stc-bar"><div class="stc-fill" data-width="82"></div></div>
+          <div class="stc-meta">27/33 topics complete</div>
+        </div>
+
+        <div class="subject-tracker-card">
+          <div class="stc-header">
+            <div class="stc-subject">English Language</div>
+            <div class="stc-pct">74%</div>
+          </div>
+          <div class="stc-bar"><div class="stc-fill" data-width="74"></div></div>
+          <div class="stc-meta">22/30 topics complete</div>
+        </div>
+
+        <div class="subject-tracker-card">
+          <div class="stc-header">
+            <div class="stc-subject">Physics</div>
+            <div class="stc-pct">66%</div>
+          </div>
+          <div class="stc-bar"><div class="stc-fill" data-width="66"></div></div>
+          <div class="stc-meta">19/29 topics complete</div>
+        </div>
+
+        <div class="subject-tracker-card">
+          <div class="stc-header">
+            <div class="stc-subject">Chemistry</div>
+            <div class="stc-pct">91%</div>
+          </div>
+          <div class="stc-bar"><div class="stc-fill" data-width="91"></div></div>
+          <div class="stc-meta">30/33 topics complete</div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 3: LESSON SUMMARIES ─── -->
+    <section id="panel-summaries" class="dash-panel" style="display:none">
+
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
+        <div class="dash-section-title" style="margin-bottom:0">Lesson Summary Notes</div>
+        <div class="summary-filter-row" id="summary-filters">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="unread">Unread</button>
+          <button class="filter-chip" data-filter="week">This Week</button>
+        </div>
+      </div>
+
+      <div class="summary-list" id="summary-list">
+
+        <div class="summary-item summary-unread" data-week="current">
+          <div class="summary-header">
+            <div class="summary-meta">
+              <div class="summary-subject">Mathematics</div>
+              <div class="summary-teacher">Mr. Chukwuemeka Adebayo · Chisom Okafor</div>
+            </div>
+            <div class="summary-date">Today — 10:45 AM</div>
+          </div>
+          <div class="summary-body">
+            Today's session focused on quadratic equations and completing the square. Chisom demonstrated strong understanding of factorisation but needs additional practice with the quadratic formula. Recommended practice: past JAMB questions from 2019–2023.
+          </div>
+          <div class="summary-topics">
+            <span class="summary-topic-chip">Quadratic Equations</span>
+            <span class="summary-topic-chip">Completing the Square</span>
+            <span class="summary-topic-chip">Factorisation</span>
+          </div>
+        </div>
+
+        <div class="summary-item summary-unread" data-week="current">
+          <div class="summary-header">
+            <div class="summary-meta">
+              <div class="summary-subject">Physics</div>
+              <div class="summary-teacher">Dr. Amaka Osei · Emeka Okafor</div>
+            </div>
+            <div class="summary-date">Yesterday — 3:15 PM</div>
+          </div>
+          <div class="summary-body">
+            Covered Newton's Laws of Motion with practical examples. Emeka showed good intuition but struggles with vector decomposition. Assigned 15 practice problems to complete before next session.
+          </div>
+          <div class="summary-topics">
+            <span class="summary-topic-chip">Newton's Laws</span>
+            <span class="summary-topic-chip">Vector Decomposition</span>
+          </div>
+        </div>
+
+        <div class="summary-item" data-week="current">
+          <div class="summary-header">
+            <div class="summary-meta">
+              <div class="summary-subject">Chemistry</div>
+              <div class="summary-teacher">Ms. Fatima Ibrahim · Chisom Okafor</div>
+            </div>
+            <div class="summary-date">May 4, 2025</div>
+          </div>
+          <div class="summary-body">
+            Completed the mole concept and stoichiometry chapter. Chisom scored 91% on the end-of-topic assessment — excellent performance. Ready to advance to equilibrium reactions next session.
+          </div>
+          <div class="summary-topics">
+            <span class="summary-topic-chip">Mole Concept</span>
+            <span class="summary-topic-chip">Stoichiometry</span>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-header">
+            <div class="summary-meta">
+              <div class="summary-subject">English Language</div>
+              <div class="summary-teacher">Mrs. Blessing Okafor · Chisom Okafor</div>
+            </div>
+            <div class="summary-date">May 3, 2025</div>
+          </div>
+          <div class="summary-body">
+            Focused on comprehension and summary writing techniques. Reviewed past JAMB English passages. Chisom's summary writing has improved significantly — recommend continuing with essay structure next.
+          </div>
+          <div class="summary-topics">
+            <span class="summary-topic-chip">Comprehension</span>
+            <span class="summary-topic-chip">Summary Writing</span>
+          </div>
+        </div>
+
+        <div class="summary-item">
+          <div class="summary-header">
+            <div class="summary-meta">
+              <div class="summary-subject">Mathematics</div>
+              <div class="summary-teacher">Mr. Chukwuemeka Adebayo · Chisom Okafor</div>
+            </div>
+            <div class="summary-date">May 2, 2025</div>
+          </div>
+          <div class="summary-body">
+            Introduction to sequences and series. Arithmetic and geometric progressions covered in full. Strong session overall.
+          </div>
+          <div class="summary-topics">
+            <span class="summary-topic-chip">Sequences</span>
+            <span class="summary-topic-chip">Series</span>
+            <span class="summary-topic-chip">AP &amp; GP</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 4: BOOK SESSION ─── -->
+    <section id="panel-book" class="dash-panel" style="display:none">
+
+      <div class="dash-section-title">Book a Session</div>
+
+      <div class="booking-control-card">
+        <h3>Select Delivery Mode</h3>
+        <p>Choose how the session is delivered. Home sessions are geo-matched to verified tutors near your registered address.</p>
+        <div class="mode-selector" id="mode-selector">
+          <div class="mode-option selected">
+            <span class="mode-option__icon">🏠</span>
+            <div class="mode-option__title">Home Tutoring</div>
+            <div class="mode-option__desc">Tutor visits your address</div>
+          </div>
+          <div class="mode-option">
+            <span class="mode-option__icon">💻</span>
+            <div class="mode-option__title">Online Session</div>
+            <div class="mode-option__desc">Live virtual classroom</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-control-card">
+        <h3>Select Child</h3>
+        <p>Choose which child this session is for.</p>
+        <div class="child-chip-row" id="child-chip-row">
+          <div class="child-chip selected">
+            <div class="child-chip-avatar">CO</div>
+            <span class="child-chip-name">Chisom</span>
+          </div>
+          <div class="child-chip">
+            <div class="child-chip-avatar">EO</div>
+            <span class="child-chip-name">Emeka</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="booking-steps" style="margin-bottom:2rem">
+        <div class="booking-step">
+          <div class="step-circle active">1</div>
+          <div class="step-label">Subject</div>
+        </div>
+        <div class="booking-step">
+          <div class="step-circle inactive">2</div>
+          <div class="step-label">Mode</div>
+        </div>
+        <div class="booking-step">
+          <div class="step-circle inactive">3</div>
+          <div class="step-label">Teacher</div>
+        </div>
+        <div class="booking-step">
+          <div class="step-circle inactive">4</div>
+          <div class="step-label">Confirm</div>
+        </div>
+      </div>
+
+      <div class="dash-card" style="margin-bottom:1.5rem">
+        <div class="terminal">
+          <div class="term-bar">
+            <div class="dp-dot dp-r"></div>
+            <div class="dp-dot dp-y"></div>
+            <div class="dp-dot dp-g"></div>
+          </div>
+          <div class="term-body">
+            <div class="term-line"><span class="term-p">$</span><span class="term-c">ami-teach book --guardian</span></div>
+            <div class="term-line"><span class="term-o">→ Child: <span class="term-em">Chisom Okafor</span></span></div>
+            <div class="term-line"><span class="term-o">→ Mode: <span class="term-em">Home Tutoring</span></span></div>
+            <div class="term-line"><span class="term-o">→ Filter: <span class="term-em">Geo-matched verified teachers</span></span></div>
+            <div class="term-line"><span class="term-o">→ Payment: <span class="term-em">Guardian wallet</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-card">
+        <div style="text-align:center; padding:2rem;">
+          <h3 style="font-size:1rem; font-weight:700; color:var(--t2); margin-bottom:.75rem">Booking Flow Coming Soon</h3>
+          <p style="font-size:.875rem; color:var(--t3); line-height:1.75; max-width:400px; margin:0 auto">Full booking flow with geo-matched teacher selection and Paystack payment is built in Phase 3.</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 5: PROGRESS REPORTS ─── -->
+    <section id="panel-reports" class="dash-panel" style="display:none">
+
+      <div class="dash-section-title">Progress Reports</div>
+
+      <div class="dash-info-banner">
+        Reports are generated automatically at the end of each billing cycle. Each report maps session activity directly against official exam syllabus objectives — not just hours attended.
+      </div>
+
+      <div class="report-list">
+
+        <div class="report-item">
+          <div class="report-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="report-details">
+            <div class="report-name">May 2025 — Progress Report</div>
+            <div class="report-meta">Chisom Okafor · JAMB 2025 · 24 Sessions</div>
+          </div>
+          <a href="#" class="report-download">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="report-item">
+          <div class="report-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="report-details">
+            <div class="report-name">April 2025 — Progress Report</div>
+            <div class="report-meta">Chisom Okafor · JAMB 2025 · 20 Sessions</div>
+          </div>
+          <a href="#" class="report-download">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="report-item">
+          <div class="report-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="report-details">
+            <div class="report-name">May 2025 — Progress Report</div>
+            <div class="report-meta">Emeka Okafor · WAEC 2025 · 16 Sessions</div>
+          </div>
+          <a href="#" class="report-download">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+        <div class="report-item">
+          <div class="report-icon">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+          </div>
+          <div class="report-details">
+            <div class="report-name">April 2025 — Invoice</div>
+            <div class="report-meta">Guardian Account · ₦124,000 · Paid</div>
+          </div>
+          <a href="#" class="report-download">
+            <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download PDF
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 6: PAYMENTS ─── -->
+    <section id="panel-payments" class="dash-panel" style="display:none">
+
+      <div class="finance-grid">
+        <div class="finance-card">
+          <div class="finance-label">Total Spent</div>
+          <div class="finance-value">₦124,000</div>
+          <div class="finance-sub">May 2025</div>
+        </div>
+        <div class="finance-card">
+          <div class="finance-label">Pending Payment</div>
+          <div class="finance-value">₦18,000</div>
+          <div class="finance-sub">2 upcoming sessions</div>
+        </div>
+        <div class="finance-card">
+          <div class="finance-label">Last Payment</div>
+          <div class="finance-value">₦12,000</div>
+          <div class="finance-sub">May 10, 2025</div>
+        </div>
+      </div>
+
+      <div class="dash-section-title">Transaction History</div>
+
+      <div class="dash-card">
+        <div class="session-table-wrap">
+          <table class="session-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Description</th>
+                <th>Child</th>
+                <th>Amount</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>May 12</td>
+                <td>Mathematics Session</td>
+                <td>Chisom</td>
+                <td>₦12,000</td>
+                <td><span class="session-status status-completed">● Paid</span></td>
+              </tr>
+              <tr>
+                <td>May 10</td>
+                <td>Physics Session</td>
+                <td>Emeka</td>
+                <td>₦15,000</td>
+                <td><span class="session-status status-completed">● Paid</span></td>
+              </tr>
+              <tr>
+                <td>May 14</td>
+                <td>Mathematics Session</td>
+                <td>Chisom</td>
+                <td>₦12,000</td>
+                <td><span class="session-status status-upcoming">● Pending</span></td>
+              </tr>
+              <tr>
+                <td>May 8</td>
+                <td>Chemistry Session</td>
+                <td>Chisom</td>
+                <td>₦12,000</td>
+                <td><span class="session-status status-completed">● Paid</span></td>
+              </tr>
+              <tr>
+                <td>May 6</td>
+                <td>JAMB Pack — Month 2</td>
+                <td>Chisom</td>
+                <td>₦45,000</td>
+                <td><span class="session-status status-completed">● Paid</span></td>
+              </tr>
+              <tr>
+                <td>May 16</td>
+                <td>Physics Session</td>
+                <td>Emeka</td>
+                <td>₦15,000</td>
+                <td><span class="session-status status-upcoming">● Upcoming</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─── PANEL 7: SPENDING OVERVIEW ─── -->
+    <section id="panel-spending" class="dash-panel" style="display:none">
+      <div class="dash-section-title">Spending Overview</div>
+      <div class="dash-card">
+        <div style="text-align:center; padding:3rem;">
+          <h3 style="font-size:1rem; font-weight:700; color:var(--t2); margin-bottom:.75rem">Analytics Coming Soon</h3>
+          <p style="font-size:.875rem; color:var(--t3); line-height:1.75; max-width:400px; margin:0 auto">Spending breakdown by child, subject, and month — with trend charts. Coming in Phase 3.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── PANEL 8: SETTINGS ─── -->
+    <section id="panel-settings" class="dash-panel" style="display:none">
+      <div class="dash-section-title">Settings</div>
+      <div class="dash-card">
+        <div style="text-align:center; padding:3rem;">
+          <h3 style="font-size:1rem; font-weight:700; color:var(--t2); margin-bottom:.75rem">Account Settings</h3>
+          <p style="font-size:.875rem; color:var(--t3); line-height:1.75; max-width:400px; margin:0 auto">Profile, notification preferences, and security settings. Coming in Phase 3.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="../../js/env.js"></script>
+  <script>
+    (function initCursor() {
+      var dot  = document.getElementById('cursor');
+      var ring = document.getElementById('cursor-ring');
+      if (!dot || !ring) return;
+      var mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + (mx - 4) + 'px, ' + (my - 4) + 'px)';
+      });
+      (function lerp() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.transform = 'translate(' + (rx - 18) + 'px, ' + (ry - 18) + 'px)';
+        requestAnimationFrame(lerp);
+      })();
+      document.querySelectorAll('a, button, [role="button"]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { ring.classList.add('expanded'); });
+        el.addEventListener('mouseleave', function() { ring.classList.remove('expanded'); });
+      });
+    })();
+  </script>
+  <script type="module" src="../../js/dashboard-guardian.js"></script>
+
+</body>
+</html>

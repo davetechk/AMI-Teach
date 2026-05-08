@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardian Registration — AMI-Teach</title>
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/global.css">
+  <link rel="stylesheet" href="../../css/auth.css">
+</head>
+<body class="auth-page">
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- ─── LEFT PANEL ─── -->
+  <div class="auth-left">
+    <div class="auth-orb"></div>
+
+    <a href="../../index.html" class="nav-logo">
+      <div class="nav-mark">
+        <svg viewBox="0 0 16 16"><path d="M8 1 L14 4 L14 8 C14 11.5 11 14 8 15 C5 14 2 11.5 2 8 L2 4 Z"/></svg>
+      </div>
+      <div class="nav-word">AMI-<span>Teach</span></div>
+    </a>
+
+    <div class="auth-left-content">
+      <h2 class="auth-left-heading">
+        The Guardian<br>Portal.
+        <span class="serif">Control.</span>
+      </h2>
+      <p class="auth-left-desc">Manage your child's education with the precision of a financial account — complete visibility, verified teachers, and documented progress.</p>
+
+      <div class="auth-left-stat">
+        <div class="stat-num"><span class="a">Full</span></div>
+        <div class="stat-label">Progress visibility per child profile</div>
+      </div>
+      <div class="auth-left-stat">
+        <div class="stat-num"><span class="a">PDF</span></div>
+        <div class="stat-label">Downloadable progress reports & invoices</div>
+      </div>
+      <div class="auth-left-stat">
+        <div class="stat-num"><span class="a">Home</span></div>
+        <div class="stat-label">or online mode — you choose per session</div>
+      </div>
+    </div>
+
+    <div class="auth-trust-strip">
+      <div class="trust-item">Lesson Summary Notes after every session</div>
+      <div class="trust-item">Financial controls — all payments in NGN</div>
+      <div class="trust-item">Link multiple dependent child profiles</div>
+      <div class="trust-item">Only verified, 3-stage vetted teachers</div>
+      <div class="trust-item">Paystack-secured payment gateway</div>
+      <div class="trust-item">Professional invoice generation</div>
+    </div>
+  </div>
+
+  <!-- ─── RIGHT PANEL ─── -->
+  <div class="auth-right">
+    <div class="auth-right-inner">
+
+      <div class="auth-form-header">
+        <div class="auth-form-kicker">Guardian Registration</div>
+        <h1>Create Account</h1>
+        <p>Set up your guardian profile to manage your child's academic journey.</p>
+      </div>
+
+      <form id="guardian-register-form" novalidate>
+        <div class="form-error"></div>
+
+        <div class="form-input-row">
+          <div class="form-group">
+            <label class="form-label" for="guardian-name">Full Name</label>
+            <input id="guardian-name" type="text" class="form-input" placeholder="Mrs. Ngozi Adeleke" autocomplete="name">
+            <span id="guardian-name-error" class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="guardian-phone">Phone Number</label>
+            <input id="guardian-phone" type="tel" class="form-input" placeholder="08012345678" autocomplete="tel">
+            <span id="guardian-phone-error" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guardian-email">Email Address</label>
+          <input id="guardian-email" type="email" class="form-input" placeholder="you@example.com" autocomplete="email">
+          <span id="guardian-email-error" class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="guardian-location">Location</label>
+          <input id="guardian-location" type="text" class="form-input" placeholder="e.g. Lekki, Lagos" autocomplete="address-level2">
+          <span id="guardian-location-error" class="field-error"></span>
+        </div>
+
+        <div class="form-input-row">
+          <div class="form-group">
+            <label class="form-label" for="guardian-password">Password</label>
+            <div class="input-password-wrapper">
+              <input id="guardian-password" type="password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password"></button>
+            </div>
+            <span id="guardian-password-error" class="field-error"></span>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="guardian-confirm-password">Confirm Password</label>
+            <div class="input-password-wrapper">
+              <input id="guardian-confirm-password" type="password" class="form-input" placeholder="••••••••" autocomplete="new-password">
+              <button type="button" class="password-toggle" aria-label="Show password"></button>
+            </div>
+            <span id="guardian-confirm-password-error" class="field-error"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="terms-row">
+            <input type="checkbox" id="guardian-terms">
+            <label for="guardian-terms">
+              I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+            </label>
+          </div>
+          <span id="guardian-terms-error" class="field-error"></span>
+        </div>
+
+        <button id="guardian-register-btn" type="submit" class="btn-auth">Create Account</button>
+      </form>
+
+      <div class="auth-switch">
+        Already have an account?<br>
+        <a href="login.html">Sign in here</a>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="../../js/env.js"></script>
+  <script>
+    (function initCursor() {
+      const dot  = document.getElementById('cursor');
+      const ring = document.getElementById('cursor-ring');
+      if (!dot || !ring) return;
+      let mx = 0, my = 0, rx = 0, ry = 0;
+      document.addEventListener('mousemove', function(e) {
+        mx = e.clientX; my = e.clientY;
+        dot.style.transform = 'translate(' + (mx - 4) + 'px, ' + (my - 4) + 'px)';
+      });
+      (function lerp() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.transform = 'translate(' + (rx - 18) + 'px, ' + (ry - 18) + 'px)';
+        requestAnimationFrame(lerp);
+      })();
+      document.querySelectorAll('a, button, [role="button"]').forEach(function(el) {
+        el.addEventListener('mouseenter', function() { ring.classList.add('expanded'); });
+        el.addEventListener('mouseleave', function() { ring.classList.remove('expanded'); });
+      });
+    })();
+  </script>
+  <script type="module">
+    import { initGuardianRegister } from '../../js/auth.js';
+    initGuardianRegister();
+  </script>
+</body>
+</html>
